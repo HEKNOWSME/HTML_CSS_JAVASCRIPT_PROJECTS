@@ -1,0 +1,30 @@
+// DOM manipulation
+// this will create element <li></li>
+const list_element = document.createElement('li')
+// this will put text in element <li></li> from box-input
+ list_element.innerHTML = box.value;
+// className help to add class in element <li class="list"></li>
+list_element.className = 'list';
+//to add element in its parent called list_container
+list_container.appendChild(list_element);
+
+// to add click event to container means when user click in this container,
+list_container.addEventListener('click', (e) => {
+   const {target} = e // to see where they clicked
+   if (target.tagName == 'LI') {
+      target.classList.toggle("checked") 
+      // should add or remove class called checked into <li></li> 
+   } else if (target.tagName == "SPAN") {
+      // should remove the parent of this <span></span> element which is list
+      target.parentElement.remove()
+   }
+})
+
+key take ways
+--------------
+1. document.createElement()
+2. element.className = 
+3. parentElement.appendChild()
+4. target.classList.toggle()
+5. target.parentElement.remove()
+6. element.innerHTML =
