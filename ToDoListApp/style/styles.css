@@ -1,11 +1,17 @@
+html {
+   font-size: 62.5%;
+}
 * {
    box-sizing: border-box;
    font-family: Georgia, 'Times New Roman', Times, serif;
    margin: 0;
    padding: 0;
+   font-size: 1.7rem;
+   list-style: none;
+   border: 0;
 }
 .container {
-   width: 100%;
+   width: 100vw;
    min-height: 100vh;
    display: flex;
    justify-content: center;
@@ -17,15 +23,62 @@
    max-width: 500px;
    background-color: #ffffff;
    border-radius: 5px;
+   padding: 1rem;
 }
 .todo_header {
    display: flex;
    gap: 2rem;
-   justify-content: space-around;
+   justify-content: space-between;
+   margin: 1rem 0;
    align-items: center;
 }
 .icon.message {
    fill: #6ca0a4;
    width: 40px;
    height: 40px;
+}
+.input-control {
+   display: flex;
+   gap: 2rem;
+   border: 1px solid #38a1a8;
+   overflow: hidden;
+   border-radius: 5px;
+   box-shadow: 0 2px #9eb1b2;
+}
+#box {
+   flex-grow: 1;
+   padding: .5rem .4rem;
+   outline: none;
+}
+.btn {
+   border-radius:10px 5px 0 10px;
+   background-color: #38a1a8;
+   padding: 1rem;
+   cursor: pointer;
+   color: #ffffff;
+}
+::placeholder {
+   font-weight: 700;
+   opacity: .5;
+}
+#list-container .list {
+   cursor: pointer;
+   margin: 1rem 0;
+   display: flex;
+   align-items: center;
+}
+.checked {
+   text-decoration: line-through;
+   font-weight: bold;
+   opacity: .5;
+}
+.checked .icon {
+   width: 25px;
+   height: 25px;
+   fill: #fff;
+   border-radius: 100%;
+   background-color: #ad28ade2;
+}
+span {
+   margin: 0 1rem;
 }
