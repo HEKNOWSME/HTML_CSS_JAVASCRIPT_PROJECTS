@@ -28,3 +28,19 @@ key take ways
 4. target.classList.toggle()
 5. target.parentElement.remove()
 6. element.innerHTML =
+
+Basic Definition: Toggle means to switch between two states, like a light switch (on/off) or a checkbox (checked/unchecked).
+classList.toggle(): This is the most common use in web development:
+
+element.classList.toggle('active');
+If the class 'active' exists, it removes it
+If the class doesn't exist, it adds it
+It's like a switch for CSS classes
+
+Real-World Examples:
+
+Dark/Light mode switches
+Menu open/close buttons
+Show/hide password buttons
+Expanding/collapsing sections
+Checkbox functionality
