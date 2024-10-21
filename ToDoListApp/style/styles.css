@@ -34,8 +34,8 @@ html {
 }
 .icon.message {
    fill: #6ca0a4;
-   width: 40px;
-   height: 40px;
+   width: 4rem;
+   height: 4rem;
 }
 .input-control {
    display: flex;
@@ -63,22 +63,27 @@ html {
 }
 #list-container .list {
    cursor: pointer;
-   margin: 1rem 0;
+   margin: 1rem;
    display: flex;
    align-items: center;
+   position: relative;
+
+
 }
-.checked {
+.checked{
    text-decoration: line-through;
    font-weight: bold;
    opacity: .5;
 }
-.checked .icon {
-   width: 25px;
-   height: 25px;
-   fill: #fff;
+.checked::before {
+   content: url(../images/check.svg);
+   width: 2rem;
+   height: 2rem;
+   margin: 0 1rem 0 0;
    border-radius: 100%;
-   background-color: #ad28ade2;
 }
-span {
-   margin: 0 1rem;
+.span {
+   font-size: 2.5rem;
+   position: absolute;
+   right: 1rem;
 }
