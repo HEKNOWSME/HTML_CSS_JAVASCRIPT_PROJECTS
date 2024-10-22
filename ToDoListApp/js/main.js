@@ -19,7 +19,7 @@ function addNote() {
 }
 
 list_container.addEventListener('click', (e) => {
-   const {target} = e
+   const { target } = e
    if (target.tagName == 'LI') {
       target.classList.toggle("checked")
    } else if (target.tagName == "SPAN") {
