@@ -44,3 +44,16 @@ Menu open/close buttons
 Show/hide password buttons;
 Expanding/collapsing sections
 Checkbox functionality
+
+// Method 1: Using matches() to check elements
+    if (e.target.matches('.span')) {
+        console.log('Span clicked');
+    } else if (e.target.matches('article')) {
+        console.log('Article clicked');
+    }
+
+ // Method 5: Get parent relationships
+    if (e.target.tagName === 'ARTICLE') {
+        const parent = e.target.parentElement;  // section
+        const grandparent = parent.parentElement;  // li
+    }
