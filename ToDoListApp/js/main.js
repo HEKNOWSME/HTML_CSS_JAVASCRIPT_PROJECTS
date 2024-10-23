@@ -1,5 +1,5 @@
 const box = document.getElementById('box')
-const list_container = document.getElementById('list-container')
+const list_container = document.getElementById('list-container');
 function addNote() {
    if (box.value === "") {
       alert('please add something')
@@ -20,8 +20,9 @@ function addNote() {
 
 list_container.addEventListener('click', (e) => {
    const { target } = e
-   if (target.tagName == 'LI') {
-      target.classList.toggle("checked")
+   if (target.matches = 'article') {
+      const section = target.parentElement
+      section.classList.toggle('checked')
    } else if (target.tagName == "SPAN") {
       target.parentElement.remove()
    }
