@@ -66,15 +66,31 @@ html {
    margin: 1rem;
    display: flex;
    align-items: center;
-   position: relative;
    font-weight: bold;
+   justify-content: space-between;
+
 
 }
-.checked{
+.checked .content{
    text-decoration: line-through;
+}
+.media {
+   display: flex;
+}
+.media::before {
+   content: '';
+   width: 2rem;
+   height: 2rem;
+   background-color: #38a1a8;
+   border-radius: 100%;
+   margin: 0 1rem;
+}
+.checked .media::before {
+   content: url(../images/check.svg);
+   display: block;
+   width: 2rem;
 }
 .span {
    font-size: 2.5rem;
-   position: absolute;
    right: 1rem;
 }
