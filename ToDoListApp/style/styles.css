@@ -79,6 +79,7 @@ html {
 }
 .media::before {
    content: '';
+   display: block;
    width: 2rem;
    height: 2rem;
    background-color: #38a1a8;

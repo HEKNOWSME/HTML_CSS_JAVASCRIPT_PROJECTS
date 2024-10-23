@@ -1,5 +1,6 @@
 const box = document.getElementById('box')
 const list_container = document.getElementById('list-container');
+const list = document.querySelector('.list');
 function addNote() {
    if (box.value === "") {
       alert('please add something')
@@ -18,12 +19,13 @@ function addNote() {
    box.value = ""
 }
 
-list_container.addEventListener('click', (e) => {
+list.addEventListener('click', (e) => {
    const { target } = e
-   if (target.matches = 'article') {
-      const section = target.parentElement
-      section.classList.toggle('checked')
+   if (target.matches('section')) {
+      target.classList.toggle('checked')
    } else if (target.tagName == "SPAN") {
       target.parentElement.remove()
+   } else {
+      return false
    }
 })
