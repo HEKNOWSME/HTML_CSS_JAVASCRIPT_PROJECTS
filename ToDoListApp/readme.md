@@ -101,3 +101,11 @@ document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/"
 localStorage: Persists until explicitly cleared, ~5-10MB limit
 sessionStorage: Clears when tab closes, ~5-10MB limit
 Cookies: Sent with every HTTP request, ~4KB limit
+
+// const array = ['claude', 'iranzi', 'uwera']
+
+function search(array, item) {
+   const items = array.filter(name => name.toLowerCase().includes(item));
+   console.log(items);
+}
+search(array, 'i')
