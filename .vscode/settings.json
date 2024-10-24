@@ -1,3 +1,6 @@
 {
-   "livePreview.defaultPreviewPath": "/ToDoListApp/index.html"
+   "livePreview.defaultPreviewPath": "/ToDoListApp/index.html",
+   "cSpell.words": [
+      "webfont"
+   ]
 }
