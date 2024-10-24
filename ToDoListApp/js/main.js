@@ -23,15 +23,26 @@ function addNote() {
 
    }
    box.value = ""
+   save_tasks_in_storage()
 }
 
 list_container.addEventListener('click', (e) => {
    const { target } = e
    if (target.matches('.media')) {
       target.classList.toggle('checked')
+      save_tasks_in_storage()
    } else if (target.tagName == "SPAN") {
       target.parentElement.remove()
+      save_tasks_in_storage()
    } else {
       return false
    }
 })
+
+function save_tasks_in_storage() {
+   localStorage.setItem('data', list_container.innerHTML)
+}
+function display_tasks() {
+   list_container.innerHTML = localStorage.getItem('data')
+}
+display_tasks()

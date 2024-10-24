@@ -57,3 +57,47 @@ Checkbox functionality
         const parent = e.target.parentElement;  // section
         const grandparent = parent.parentElement;  // li
     }
+
+understanding the storages
+// localStorage
+// Setting data
+localStorage.setItem('key', 'value')
+localStorage.key = 'value'  // Alternative syntax
+
+// Getting data
+const value = localStorage.getItem('key')
+const value = localStorage.key  // Alternative syntax
+
+// Removing specific item
+localStorage.removeItem('key')
+
+// Clear all data
+localStorage.clear()
+
+// Get number of stored items
+localStorage.length
+
+// Get key by index
+localStorage.key(index)
+
+// sessionStorage
+// Works exactly like localStorage but only for current session
+sessionStorage.setItem('key', 'value')
+sessionStorage.getItem('key')
+sessionStorage.removeItem('key')
+sessionStorage.clear()
+sessionStorage.length
+sessionStorage.key(index)
+
+// Setting a cookie
+document.cookie = "username=John Doe; expires=Thu, 18 Dec 2024 12:00:00 UTC; path=/"
+
+// Reading cookies
+const allCookies = document.cookie
+
+// Delete cookie by setting expired date
+document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/"
+
+localStorage: Persists until explicitly cleared, ~5-10MB limit
+sessionStorage: Clears when tab closes, ~5-10MB limit
+Cookies: Sent with every HTTP request, ~4KB limit
