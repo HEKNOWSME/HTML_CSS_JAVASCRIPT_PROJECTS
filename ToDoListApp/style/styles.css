@@ -48,7 +48,7 @@ html {
    align-items: center;
 }
 .icon.message {
-   fill: #6ca0a4;
+   fill: #2E3192;
    width: 4rem;
    height: 4rem;
 }
@@ -59,14 +59,14 @@ html {
    border-radius: 50px;
    position: relative;
 }
-#box {
+#input {
    flex-grow: 1;
    padding: 0 1rem;
    outline: none;
 }
 .btn {
    border-radius: 50px;
-   background-color: #38a1a8;
+   background-color: #2E3192;
    padding: 1rem;
    cursor: pointer;
    color: #ffffff;
@@ -121,7 +121,7 @@ html {
    display: block;
    width: 2rem;
    height: 2rem;
-   background-color: #38a1a8;
+   background-color: #2E3192;
    border-radius: 100%;
    margin: 0 1rem;
 }

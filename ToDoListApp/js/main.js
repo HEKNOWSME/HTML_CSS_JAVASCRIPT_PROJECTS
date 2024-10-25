@@ -1,7 +1,20 @@
-const box = document.getElementById('box')
+const input = document.getElementById('input')
 const list_container = document.getElementById('list-container');
+
+input.addEventListener('keypress', (e) => {
+   if (e.key === "Enter") {
+      addNote();
+   }
+})
+list_container.addEventListener('click', (e) => {
+   const { target } = e
+   toggles(target)
+})
+document.querySelector('.btn').addEventListener('click', addNote);
+document.getElementById('search').addEventListener('input', search);
+
 function addNote() {
-   if (box.value === "") {
+   if (input.value === "") {
       alert('please add something')
    }
    else {
@@ -12,40 +25,26 @@ function addNote() {
       const article = document.createElement('article');
       const span = document.createElement('span');
       article.className = 'content'
-      article.innerHTML = box.value
+      article.innerHTML = input.value
       section.appendChild(article)
       list_element.appendChild(section)
       list_container.appendChild(list_element);
       list_element.appendChild(span)
       span.className = 'span'
    }
-   box.value = ""
+   input.value = ""
    save_tasks_in_storage()
 }
-
-list_container.addEventListener('click', (e) => {
-   const { target } = e
-   if (target.matches('.media')) {
-      target.classList.toggle('checked')
+function toggles(target) {
+   if (target.matches('.content')) {
+      target.parentElement.classList.toggle('checked')
       save_tasks_in_storage()
    } else if (target.tagName == "SPAN") {
       target.parentElement.remove()
       save_tasks_in_storage()
 
    }
-})
-function save_tasks_in_storage() {
-   localStorage.setItem('data', list_container.innerHTML);
 }
-function display_tasks() {
-   const data = localStorage.getItem('data');
-   if (data) {
-      list_container.innerHTML = data
-      search()
-   }
-}
-
-document.getElementById('search').addEventListener('input', search);
 function search() {
    const tasks = document.querySelectorAll('.list');
    const search = document.getElementById('search');
@@ -57,5 +56,15 @@ function search() {
           task.style.display = 'none';
       }
    })
+}
+function save_tasks_in_storage() {
+   localStorage.setItem('data', list_container.innerHTML);
+}
+function display_tasks() {
+   const data = localStorage.getItem('data');
+   if (data) {
+      list_container.innerHTML = data
+      search()
+   }
 }
 display_tasks()
