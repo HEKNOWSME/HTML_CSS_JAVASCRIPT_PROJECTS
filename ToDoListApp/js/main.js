@@ -34,8 +34,6 @@ list_container.addEventListener('click', (e) => {
    } else if (target.tagName == "SPAN") {
       target.parentElement.remove()
       save_tasks_in_storage()
-   } else {
-      return false
    }
 })
 
