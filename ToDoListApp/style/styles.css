@@ -26,16 +26,23 @@ html {
    list-style: none;
    border: 0;
 }
+:root {
+   --primary-color: #38a1a8;
+   --secondary-color: #2E3192;
+   --accent-color: #ad28ade2;
+   --border-radius: 50%;
+   --color: #ffffff;
+
+}
 .container {
    width: 100vw;
    min-height: 100vh;
-   background: linear-gradient(135deg, #38a1a8, #ad28ade2);
+   background: linear-gradient(135deg, var(--primary-color),var(--accent-color));
    padding: 1rem;
 }
 .todo-app {
-
    max-width: 768px;
-   background-color: #ffffff;
+   background-color: var(--color);
    border-radius: 5px;
    padding: 1rem 2rem;
    margin: auto;
@@ -48,13 +55,13 @@ html {
    align-items: center;
 }
 .icon.message {
-   fill: #2E3192;
+   fill: var(--secondary-color);
    width: 4rem;
    height: 4rem;
 }
 .input-control {
    display: flex;
-   border: 2px solid #38a1a8;
+   border: 2px solid var(--primary-color);
    overflow: hidden;
    border-radius: 50px;
    position: relative;
@@ -66,31 +73,30 @@ html {
 }
 .btn {
    border-radius: 50px;
-   background-color: #2E3192;
+   background-color: var(--secondary-color);
    padding: 1rem;
    cursor: pointer;
-   color: #ffffff;
+   color: var(--color);
 }
 ::placeholder {
    font-weight: 500;
    opacity: .5;
-   color: #ffffff;
+   color: var(--color);
 }
 .search {
    display: flex;
    margin-top: 1rem;
-   justify-content: right;
 }
 .search .btn {
-   background-color: #2E3192;
-   right: 0;
+   background-color: var(--secondary-color);
 }
 .input-group {
    display: flex;
-   border: 2px solid #2E3192;
+   border: 2px solid var(--secondary-color);
    overflow: hidden;
    border-radius: 50px;
    position: relative;
+   margin: 0 2rem;
 }
 #search {
    border: none;
@@ -100,7 +106,7 @@ html {
 
 #list-container .list {
    cursor: pointer;
-   margin: 1rem
+   margin: 2rem 1rem
    ;
    display: flex;
    align-items: center;
@@ -121,7 +127,7 @@ html {
    display: block;
    width: 2rem;
    height: 2rem;
-   background-color: #2E3192;
+   background-color: var(--secondary-color);
    border-radius: 100%;
    margin: 0 1rem;
 }
