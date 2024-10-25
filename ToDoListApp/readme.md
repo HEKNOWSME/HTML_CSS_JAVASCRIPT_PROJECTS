@@ -109,3 +109,17 @@ function search(array, item) {
    console.log(items);
 }
 search(array, 'i')
+
+
+function search() {
+   const tasks = document.querySelectorAll('.list');
+   const search = document.getElementById('search');
+   Array.from(tasks).forEach(task => {
+      const content = task.querySelector('.content').innerHTML.toLowerCase()
+      if (content.includes(search.value)) {
+          task.style.display = '';
+      } else {
+          task.style.display = 'none';
+      }
+   })
+}

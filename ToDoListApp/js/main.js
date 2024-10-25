@@ -18,9 +18,6 @@ function addNote() {
       list_container.appendChild(list_element);
       list_element.appendChild(span)
       span.className = 'span'
-      span.innerHTML = "\u00d7";
-      span.className = "span"
-
    }
    box.value = ""
    save_tasks_in_storage()
@@ -34,16 +31,31 @@ list_container.addEventListener('click', (e) => {
    } else if (target.tagName == "SPAN") {
       target.parentElement.remove()
       save_tasks_in_storage()
+
    }
 })
-display_tasks()
 function save_tasks_in_storage() {
    localStorage.setItem('data', list_container.innerHTML);
 }
 function display_tasks() {
    const data = localStorage.getItem('data');
    if (data) {
-      list_container.innerHTML += data
+      list_container.innerHTML = data
+      search()
    }
-
 }
+
+document.getElementById('search').addEventListener('input', search);
+function search() {
+   const tasks = document.querySelectorAll('.list');
+   const search = document.getElementById('search');
+   tasks.forEach(task => {
+      const content = task.querySelector('.content').innerHTML.toLowerCase()
+      if (content.includes(search.value)) {
+          task.style.display = '';
+      } else {
+          task.style.display = 'none';
+      }
+   })
+}
+display_tasks()
