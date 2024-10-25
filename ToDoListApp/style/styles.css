@@ -78,6 +78,7 @@ html {
 .search {
    display: flex;
    margin-top: 1rem;
+   justify-content: right;
 }
 .search .btn {
    background-color: #2E3192;
@@ -94,14 +95,13 @@ html {
    outline: none;
    padding: 1rem;
 }
+
 #list-container .list {
    cursor: pointer;
    margin: 1rem;
    display: flex;
    align-items: center;
-   font-weight: bold;
    justify-content: space-between;
-
 
 }
 .checked .content{
@@ -109,6 +109,8 @@ html {
 }
 .media {
    display: flex;
+   align-items: center;
+
 }
 .media::before {
    content: '';

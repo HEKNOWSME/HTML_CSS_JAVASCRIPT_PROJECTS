@@ -36,11 +36,14 @@ list_container.addEventListener('click', (e) => {
       save_tasks_in_storage()
    }
 })
-
+display_tasks()
 function save_tasks_in_storage() {
-   localStorage.setItem('data', list_container.innerHTML)
+   localStorage.setItem('data', list_container.innerHTML);
 }
 function display_tasks() {
-   list_container.innerHTML = localStorage.getItem('data')
+   const data = localStorage.getItem('data');
+   if (data) {
+      list_container.innerHTML += data
+   }
+
 }
-display_tasks()
