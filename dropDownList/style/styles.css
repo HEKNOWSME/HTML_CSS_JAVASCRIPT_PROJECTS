@@ -36,12 +36,13 @@ body {
     min-width: 320px;
 }
 .nav-container {
-    position: static;
+    position: sticky;
     background: linear-gradient(100deg, #a9a3a3, #739dd8, #df0edb);
     top: 0;
     z-index: 1;
     padding: 1rem;
     align-items: center;
+    height: 10vh;
 }
 .nav_list {
     display: flex;
@@ -69,12 +70,14 @@ body {
     border-radius: 100%;
 }
 .sub-container {
-    background: linear-gradient(100deg, #a9a3a3, #739dd8, #df0edb);;
+    background: linear-gradient(100deg, #a9a3a3, #739dd8, #df0edb);
+    opacity: .9;
     padding: 1rem;
     width: 25rem;
-    margin: auto;
-    margin-right: 0;
     border-radius: 0 0 1rem 1rem;
+    position: fixed;
+    right: 0;
+    z-index: 1;
 }
 
 .header {
@@ -129,3 +132,13 @@ body {
 .chevron {
     transition: transform 0.6s;
 }
+.block {
+    padding: 4rem 6rem;
+    background-color: #eef2f8;
+    height: 90vh;
+}
+.block-header {
+    text-align: center;
+}
+
+
