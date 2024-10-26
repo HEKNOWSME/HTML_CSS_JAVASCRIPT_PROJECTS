@@ -8,8 +8,8 @@
   <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="logout">
     <path d="M17 7L15.59 8.41L18.17 11H8V13H18.17L15.59 15.58L17 17L22 12M4 5H12V3H4C2.9 3 2 3.9 2 5V19C2 20.1 2.9 21 4 21H12V19H4V5Z"></path>
   </symbol>
-  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="menu">
-    <path d="M10,17L15,12L10,7V17Z"></path>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="chevron">
+    <path d="M8.59,18.16L14.25,12.5L8.59,6.84L7.89,7.55L12.84,12.5L7.89,17.45L8.59,18.16Z"></path>
   </symbol>
   <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="account">
     <path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"></path>
