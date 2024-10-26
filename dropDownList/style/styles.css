@@ -124,3 +124,9 @@ body {
     display: flex;
     gap: 2rem;
 }
+.media:last-of-type:hover .chevron {
+    transform: translateX(5px);
+}
+.chevron {
+    transition: transform 0.6s;
+}
