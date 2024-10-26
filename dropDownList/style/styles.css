@@ -33,6 +33,7 @@ a {
 }
 body {
     background-color: #ebdede;
+    min-width: 320px;
 }
 .nav-container {
     position: static;
@@ -40,12 +41,7 @@ body {
     top: 0;
     z-index: 1;
     padding: 1rem;
-    display: flex;
-    justify-content: space-between;
     align-items: center;
-}
-.logo-img {
-    width: 10rem;
 }
 .nav_list {
     display: flex;
@@ -58,7 +54,7 @@ body {
     font-size: 1.7rem;
 }
 .nav_list .img {
-    width: 3rem;
+    width: 100%;
     height: 3rem;
     border-radius: 100%;
 }
@@ -66,8 +62,11 @@ body {
     display: flex;
     align-items: center;
     gap: 1rem;
-    color: #ffffff;
     cursor: pointer;
+}
+.list_item:last-of-type:hover {
+    border: 2px solid #882323;
+    border-radius: 100%;
 }
 .sub-container {
     background: linear-gradient(100deg, #a9a3a3, #739dd8, #df0edb);;
