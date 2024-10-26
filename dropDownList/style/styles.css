@@ -28,6 +28,9 @@ html {
    font-family: "roboto", Arial, Helvetica, sans-serif;
    text-decoration: none;
 }
+a {
+    color: #fff;
+}
 body {
     background-color: #ebdede;
 }
@@ -73,14 +76,38 @@ body {
     margin-right: 2rem;
     border-radius: 0 0 1rem 1rem;
 }
+
 .header {
     display: flex;
     align-items: center;
     gap: 2rem;
-    color: #fff;
+    color: #e6e1e1;
 }
 .header .img {
     width: 4rem;
     height: 4rem;
     border-radius: 100%;
+    
+}
+.icon-container {
+    border-radius: 100%;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    padding: .3rem;
+}
+.icon {
+    width: 2rem;
+    height: 2rem;
+    fill: #fff;
+}
+.media {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: .8rem 0;
+    margin-top: 1rem;
+}
+.media:first-of-type {
+    border-top: 1px solid #d6ccd5;
 }
