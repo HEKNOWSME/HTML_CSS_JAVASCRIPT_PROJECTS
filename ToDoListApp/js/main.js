@@ -31,9 +31,10 @@ function addNote() {
       list_container.appendChild(list_element);
       list_element.appendChild(span)
       span.className = 'span'
+      showMessage()
+      input.value = ""
+      save_tasks_in_storage()
    }
-   input.value = ""
-   save_tasks_in_storage()
 }
 function toggles(target) {
    if (target.matches('.content')) {
@@ -66,5 +67,12 @@ function display_tasks() {
       list_container.innerHTML = data
       search()
    }
+}
+function showMessage() {
+   const not = document.querySelector('.notification');
+   not.classList.remove('hidden')
+   setTimeout(() => {
+      not.classList.add('hidden')
+   }, 2000)
 }
 display_tasks()
