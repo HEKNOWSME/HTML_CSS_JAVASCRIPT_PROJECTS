@@ -40,6 +40,8 @@ body {
     background: linear-gradient(100deg, #a9a3a3, #739dd8, #df0edb);
     top: 0;
     z-index: 1;
+    display: flex;
+    justify-content: flex-end;
     padding: 1rem;
     align-items: center;
     height: 10vh;
@@ -66,7 +68,6 @@ body {
     cursor: pointer;
 }
 .list_item:last-of-type:hover {
-    border: 2px solid #882323;
     border-radius: 100%;
 }
 .sub-container {
@@ -78,6 +79,8 @@ body {
     position: fixed;
     right: 0;
     z-index: 1;
+    max-height: 100%;
+    transition: all 0.5s;
 }
 
 .header {
@@ -90,7 +93,6 @@ body {
     width: 4rem;
     height: 4rem;
     border-radius: 100%;
-    
 }
 .icon-container {
     border-radius: 100%;
@@ -141,4 +143,8 @@ body {
     text-align: center;
 }
 
-
+.sub-container.collapse {
+    opacity: 0;
+    max-height: 0;
+    transition: none;
+}
