@@ -22,7 +22,6 @@ html {
    font-family: "open-sans", Arial, Helvetica, sans-serif;
    margin: 0;
    padding: 0;
-   font-size: 1.7rem;
    list-style: none;
    border: 0;
 }
@@ -33,4 +32,55 @@ html {
    --border-radius: 50%;
    --color: #ffffff;
 
+}
+body {
+    font-size: 1.5rem;
+    color: #ffffff;
+}
+.container {
+   display: flex;
+   height: 100vh;
+   justify-content: center;
+   align-items: center;
+   background: linear-gradient(190deg, #2E3192, #38a1a8, #7b3939);
+}
+.quiz-app {
+   background-color: #ffffff;
+   color: #272841;
+   width: 500px;
+   padding: 2rem;
+   border-radius: 10px;
+}
+.quiz-app_header {
+   margin-bottom: 2rem;
+   padding: 2rem 0;
+   border-bottom: 1px solid;
+}
+.btn {
+   border: 1px solid;
+   padding: 1rem;
+   margin-top: 2rem;
+   border-radius: 5px;
+   display: block;
+   width: 100%;
+   text-align: start;
+   font-size: 1.7rem;
+   background-color: #ffffff;
+   transition: all .5s;
+}
+.btn:hover {
+   background-color: #2E3192;
+   color: #ffffff;
+   cursor: pointer;
+}
+#next-btn {
+   background-color: #2E3192;
+   width: auto;
+   font-size: 1.5rem;
+   padding: .7rem 2rem;
+   margin: 1rem auto;
+   color: #ffffff;
+}
+#next-btn:hover {
+   background-color: #0f0f0f;
 }
