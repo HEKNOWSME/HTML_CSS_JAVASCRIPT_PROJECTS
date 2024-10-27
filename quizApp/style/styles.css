@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'opens-sans';
+    src: url('./fonts/opensans-regular-webfont.woff2') format('woff2'),
+         url('./fonts/opensans-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url('./fonts/opensans-bold-webfont.woff2') format('woff2'),
+         url('./fonts/opensans-bold-webfont.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+
+}
+html {
+   font-size: 62.5%;
+}
+* {
+   box-sizing: border-box;
+   font-family: "open-sans", Arial, Helvetica, sans-serif;
+   margin: 0;
+   padding: 0;
+   font-size: 1.7rem;
+   list-style: none;
+   border: 0;
+}
+:root {
+   --primary-color: #38a1a8;
+   --secondary-color: #2E3192;
+   --accent-color: #ad28ade2;
+   --border-radius: 50%;
+   --color: #ffffff;
+
+}
