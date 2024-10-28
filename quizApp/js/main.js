@@ -40,20 +40,49 @@ function startQuiz() {
 }
 
 function showQuestion() {
+   currentQuestionIndex = 0;
+   currentScore = 0;
    removeNext()
    const currentQuestion = questions[currentQuestionIndex];
-   question.innerHTML = `Q ${currentQuestionIndex + 1}. ${currentQuestion.question}`
-   currentQuestion.answers.forEach(element => {
+   question.innerHTML = `Q ${currentQuestionIndex + 1}. ${currentQuestion.question}`;
+
+   currentQuestion.answers.forEach(answer => {
       const btn = document.createElement('button');
       btn.classList.add('btn');
-      btn.innerHTML = element.answer;
+      btn.innerHTML = answer.answer;
       answers.appendChild(btn)
+      if (answer.isCorrect) {
+         btn.dataset.isCorrect = answer.isCorrect;
+      } else {
+         btn.dataset.isCorrect = answer.isCorrect
+      }
+      btn.addEventListener('click', checkAnswer)
    });
    
 }
 
 function removeNext() {
    nextQuestion.style.display = "none";
+}
+
+function checkAnswer(e) {
+   const btn = e.target;
+   const isCorrect = btn.dataset.isCorrect === 'true';
+   if (isCorrect) {
+      btn.classList.add('correct');
+      currentScore ++
+   } else {
+      btn.classList.add('incorrect')
+   }
+
+   Array.from(answers.children).forEach(btn => {
+      if (btn.dataset.isCorrect === "true") {
+         btn.classList.add('correct')
+      }
+      btn.disabled = true
+      nextQuestion.style.display = "block"
+   })
+   console.log(currentScore);
 }
 startQuiz()
 

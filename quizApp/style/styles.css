@@ -68,10 +68,14 @@ body {
    background-color: #ffffff;
    transition: all .5s;
 }
-.btn:hover {
+.btn:hover:not(:disabled) {
    background-color: #38a1a8;
    color: #ffffff;
    cursor: pointer;
+}
+
+.btn:disabled {
+   cursor: no-drop;
 }
 #next-btn {
    background-color: #38a1a8;
