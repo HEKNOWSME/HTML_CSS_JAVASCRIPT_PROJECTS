@@ -144,7 +144,7 @@ html {
    display: block;
    width: 2rem;
    height: 2rem;
-   background-color: var(--secondary-color);
+   background-color: #2e927b;
    border-radius: 100%;
    margin: 0 1rem;
 }
