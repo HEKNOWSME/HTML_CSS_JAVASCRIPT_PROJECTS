@@ -6,10 +6,7 @@ input.addEventListener('keypress', (e) => {
       addNote();
    }
 })
-list_container.addEventListener('click', (e) => {
-   const { target } = e
-   toggles(target)
-})
+list_container.addEventListener('click', toggles)
 document.querySelector('.btn').addEventListener('click', addNote);
 document.getElementById('search').addEventListener('input', search);
 
@@ -36,7 +33,8 @@ function addNote() {
       save_tasks_in_storage()
    }
 }
-function toggles(target) {
+function toggles(e) {
+   const {target} = e
    if (target.matches('.content')) {
       target.parentElement.classList.toggle('checked')
       save_tasks_in_storage()
