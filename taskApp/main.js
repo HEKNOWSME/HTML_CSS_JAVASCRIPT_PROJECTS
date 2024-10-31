@@ -23,7 +23,7 @@ class ToTask {
       tasks.forEach((task, index) => {
          const article = document.createElement('article');
          article.innerHTML = `
-         <span>${task.taskName} ${task.date}</span>
+         <span>${index}: ${task.taskName}</span>
          <button onclick="toTask.delete(${index})">Delete</button>`;
          tasks_container.appendChild(article);
       })
