@@ -27,62 +27,56 @@ const question4 = new QuizQuestion("Where do we start from country?", answersOfQ
 const question = document.getElementById('question');
 const answers = document.getElementById('answers');
 const nextQuestion = document.getElementById('next-btn');
+const btn = document.querySelectorAll('.btn');
 const questions = [question1, question2, question3, question4];
 
-let currentQuestionIndex = 0;
-let currentScore = 0;
-
+let score = 0;
+let currentIndex = 0;
 function startQuiz() {
-   currentQuestionIndex = 0;
-   currentScore = 0;
-   nextQuestion.innerHTML = "next";
-   showQuestion();
+   resetNext();
+   score = 0;
+   currentIndex = 0;
+   showQuestion()
 }
 
 function showQuestion() {
-   currentQuestionIndex = 0;
-   currentScore = 0;
-   removeNext()
-   const currentQuestion = questions[currentQuestionIndex];
-   question.innerHTML = `Q ${currentQuestionIndex + 1}. ${currentQuestion.question}`;
+   const currentQuestion = questions[currentIndex];
+   question.innerHTML = `${currentIndex + 1}. ${currentQuestion.question}`;
 
    currentQuestion.answers.forEach(answer => {
       const btn = document.createElement('button');
-      btn.classList.add('btn');
       btn.innerHTML = answer.answer;
-      answers.appendChild(btn)
+      btn.classList.add('btn');
+      answers.appendChild(btn);
       if (answer.isCorrect) {
-         btn.dataset.isCorrect = answer.isCorrect;
-      } else {
          btn.dataset.isCorrect = answer.isCorrect
       }
-      btn.addEventListener('click', checkAnswer)
+      btn.addEventListener('click', selectBtn);
    });
-   
+
+
 }
 
-function removeNext() {
-   nextQuestion.style.display = "none";
-}
-
-function checkAnswer(e) {
+function selectBtn(e) {
    const btn = e.target;
-   const isCorrect = btn.dataset.isCorrect === 'true';
-   if (isCorrect) {
+   const correct = btn.dataset.isCorrect == "true";
+   if (correct) {
       btn.classList.add('correct');
-      currentScore ++
+      score++;
    } else {
       btn.classList.add('incorrect')
    }
+   nextQuestion.style.display = "block"
 
    Array.from(answers.children).forEach(btn => {
-      if (btn.dataset.isCorrect === "true") {
-         btn.classList.add('correct')
+      if (btn.dataset.isCorrect) {
+         btn.classList.add('correct');
       }
       btn.disabled = true
-      nextQuestion.style.display = "block"
    })
-   console.log(currentScore);
+
+}
+function resetNext() {
+   nextQuestion.style.display = "none";
 }
 startQuiz()
-
