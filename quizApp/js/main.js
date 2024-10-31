@@ -29,7 +29,7 @@ const answers = document.getElementById('answers');
 const nextQuestion = document.getElementById('next-btn');
 const btn = document.querySelectorAll('.btn');
 const questions = [question1, question2, question3, question4];
-
+const container = document.querySelector('.quiz-content')
 let score = 0;
 let currentIndex = 0;
 function startQuiz() {
@@ -40,6 +40,8 @@ function startQuiz() {
 }
 
 function showQuestion() {
+   resetNext()
+   question.innerHTML = ''
    const currentQuestion = questions[currentIndex];
    question.innerHTML = `${currentIndex + 1}. ${currentQuestion.question}`;
 
@@ -78,5 +80,22 @@ function selectBtn(e) {
 }
 function resetNext() {
    nextQuestion.style.display = "none";
+}
+nextQuestion.addEventListener('click', () => {
+   if (currentIndex < questions.length) {
+      handleNextOne()
+   } else {
+      startQuiz()
+   }
+})
+function handleNextOne() {
+   currentIndex++;
+   answers.innerHTML = ""
+   if (currentIndex < questions.length) {
+      showQuestion()
+   } else {
+      question.innerHTML = `your marks are ${score} out of ${questions.length}`
+      nextQuestion.innerHTML = "Restart"
+   }
 }
 startQuiz()
