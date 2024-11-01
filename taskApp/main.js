@@ -33,6 +33,7 @@ class KeepNote {
       task_container.innerHTML = ''
       tasks.forEach((task, index) => {
          const article = document.createElement('article');
+         article.className = 'task'
          article.innerHTML = `
          <span>${task.text}</span>
          <button class="not" onclick="keepNote.completed(${index})">Mark complete</button>
@@ -83,19 +84,16 @@ class KeepNote {
       this.displayNotes()
    }
    search(text) {
-      tasks.forEach((item, index) => {
-         if (item.text.includes(text)) {
-         task_container.innerHTML = ''
-         const article = document.createElement('article');
-         article.innerHTML = `
-         <span>${item.text}</span>
-         <button class="not" onclick="keepNote.completed(${index})">Mark complete</button>
-         <button onclick="keepNote.delete(${index})">Delete note</button>
-         `
-            task_container.appendChild(article)
+      const tasks_elements = task_container.querySelectorAll('.task')
+      Array.from(tasks_elements).forEach(task => {
+         const span = task.querySelector('span').innerHTML.toLowerCase()
+         if (span.includes(text)) {
+            task.style.display = ''
+         } else {
+            task.style.display = 'none'
          }
-         
       })
+
    }
 }
 
@@ -107,7 +105,7 @@ addInput.addEventListener('keypress', (e) => {
 })
 search.addEventListener('input', () => {
    if (search.value !== '') {
-      keepNote.search(search.value.trim())
+      keepNote.search(search.value)
    } else {
       keepNote.displayNotes()
    }
