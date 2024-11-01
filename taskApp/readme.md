@@ -1,58 +1,55 @@
-// Initialize an empty array to store tasks 
-let tasks = [];
-
-// Get DOM elements
-const addInput = document.getElementById('add');
-const tasksContainer = document.querySelector('.tasks-container');
-
-// Add event listener for input (when user presses Enter)
-addInput.addEventListener('keypress', function(event) {
-    if (event.key === 'Enter') {
-        const task = addInput.value.trim();
-        
-        if (task !== '') {
-            // Add task to array
-            tasks.push(task);
-            
-            // Clear input field
-            addInput.value = '';
-            
-            // Display tasks
-            displayTasks();
-            
-            // Optional: Save to localStorage
-            localStorage.setItem('tasks', JSON.stringify(tasks));
-        }
-    }
-});
-
-// Function to display tasks
-function displayTasks() {
-    tasksContainer.innerHTML = '';
-    tasks.forEach((task, index) => {
-        const taskElement = document.createElement('div');
-        taskElement.className = 'task';
-        taskElement.innerHTML = `
-            <span>${task}</span>
-            <button onclick="deleteTask(${index})">Delete</button>
-        `;
-        tasksContainer.appendChild(taskElement);
-    });
+let tasks = []
+const tasks_container = document.querySelector('.tasks-container');
+const input = document.getElementById('add');
+class Task {
+   constructor(taskName, date) {
+      this.taskName = taskName;
+      this.date = date;
+   }
 }
-
-// Function to delete task
-function deleteTask(index) {
-    tasks.splice(index, 1);
-    displayTasks();
-    // Update localStorage
-    localStorage.setItem('tasks', JSON.stringify(tasks));
+class ToTask {
+   addTask() {
+      const task = new Task();
+      const value = input.value.trim();
+      if (value === "") return alert('please add something')
+      task.taskName = value;
+      task.date = new Date();
+      tasks.push(task)
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+      input.value = ""
+   }
+   displayData() {
+      tasks_container.innerHTML = ""
+      tasks.forEach((task, index) => {
+         const article = document.createElement('article');
+         article.innerHTML = `
+         <span>${index}: ${task.taskName}</span>
+         <button onclick="toTask.delete(${index})">Delete</button>`;
+         tasks_container.appendChild(article);
+      })
+   }
+   delete(index) {
+      tasks.splice(index, 1);
+      this.displayData()
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+   }
+   reverse() {
+      const data = JSON.parse(localStorage.getItem('tasks'));
+      const reversed = data.reverse();
+      tasks = reversed
+      this.displayData()
+   }
 }
+const toTask = new ToTask();
+input.addEventListener('keypress', (e) => {
+   if (e.key == 'Enter') {
+      toTask.addTask()
+      toTask.displayData()
+   }
+})
 
-// Load tasks from localStorage when page loads
 window.addEventListener('load', () => {
-    const savedTasks = localStorage.getItem('tasks');
-    if (savedTasks) {
-        tasks = JSON.parse(savedTasks);
-        displayTasks();
-    }
-});
+   const data = localStorage.getItem('tasks');
+   tasks = JSON.parse(data);
+   toTask.displayData()
+})
