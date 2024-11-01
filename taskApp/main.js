@@ -2,7 +2,7 @@ const addInput = document.getElementById('add');
 const task_container = document.querySelector('.tasks-container');
 const task_number = document.querySelector('.tasks_number');
 const complete = document.querySelector('.complete')
-const tasks = []
+let tasks = []
 let number_of_task = 0;
 let number_of_completed_task = 0;
 class Task {
@@ -19,17 +19,14 @@ class KeepNote {
       task.isCompleted = false;
       tasks.push(task);
       this.displayNotes()   
-      localStorage.setItem('tasks', JSON.stringify(tasks));
       number_of_task++
       task_number.innerHTML = `${number_of_task}`;
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+      localStorage.setItem('number', number_of_task);
       }
-      if (number_of_completed_task > 0) {
-         number_of_completed_task--
-         complete.innerHTML = number_of_completed_task
-      } else {
-         complete.innerHTML = number_of_completed_task
-      }
+      complete.innerHTML = number_of_completed_task
       addInput.value = ''
+      localStorage.setItem('numbers', number_of_completed_task)
    }
    displayNotes() {
       task_container.innerHTML = ''
@@ -52,6 +49,9 @@ class KeepNote {
          number_of_task--
          complete.innerHTML = number_of_completed_task;
          task_number.innerHTML = number_of_task;
+         localStorage.setItem('tasks', JSON.stringify(tasks));
+         localStorage.setItem('number', number_of_task);
+         localStorage.setItem('numbers', number_of_completed_task);
       }
    }
    delete(index) {
@@ -61,14 +61,15 @@ class KeepNote {
          complete.innerHTML = number_of_completed_task;
          tasks.splice(index, 1)
          this.displayNotes()
-         return
+         localStorage.setItem('numbers', number_of_completed_task)
       } else {
          number_of_task--
          task_number.innerHTML = number_of_task;
          tasks.splice(index, 1)
          this.displayNotes()
+         localStorage.setItem('number', number_of_task);
       }
-      
+      localStorage.setItem('tasks', JSON.stringify(tasks))
    }
 }
 
@@ -78,3 +79,20 @@ addInput.addEventListener('keypress', (e) => {
       keepNote.addNote();
    }
 })
+window.addEventListener('load', () => {
+   const data = localStorage.getItem('tasks');
+   if (data) {
+      console.log(data);
+      tasks = JSON.parse(data)
+      keepNote.displayNotes()
+      let number = parseInt(localStorage.getItem('number'));
+      let numbers = parseInt(localStorage.getItem('numbers'));
+      task_number.innerHTML = number;
+      complete.innerHTML = numbers;
+      number_of_task = number
+      number_of_completed_task = numbers
+   } else {
+      task_container.innerHTML = ''
+   }
+})
+keepNote.displayNotes()
