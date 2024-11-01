@@ -33,7 +33,7 @@ class KeepNote {
       task_container.innerHTML = ''
       tasks.forEach((task, index) => {
          const article = document.createElement('article');
-         article.className = 'task'
+         article.classList.add('task')
          article.innerHTML = `
          <span>${task.text}</span>
          <button class="not" onclick="keepNote.completed(${index})">Mark complete</button>
