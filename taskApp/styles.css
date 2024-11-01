@@ -1,0 +1,9 @@
+.tasks_number, .complete {
+   background-color: rgb(15, 227, 255);
+   padding: .5rem 1rem;
+   color: aliceblue;
+   border: 0;
+   font-size: 1rem;
+   border-radius: 5px;
+   margin: 3rem;
+}
