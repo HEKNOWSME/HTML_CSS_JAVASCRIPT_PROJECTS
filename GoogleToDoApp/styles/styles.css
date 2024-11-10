@@ -1,0 +1,128 @@
+html {
+   font-size: 62.5%;
+}
+* {
+   box-sizing: border-box;
+   padding: 0;
+   color: #fff;
+}
+:root {
+   --primary-color: #3B71CA;
+   --secondary-color: #9FA6B2;
+   --color-accent: #ab68cb;
+   --color-success: #14A44D;
+   --color-warning: #E4A11B;
+   --color-danger: #DC4C64;
+   --color-dark: #332D2D;
+   --color-info: #54B4D3;
+   --color-light: #FBFBFB;
+}
+body {
+   background: var(--color-dark);
+   font-size: 1.6rem;
+}
+.container {
+   padding-top: 2rem;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.todo-app {
+   border-radius: 15px;
+   border: 3px solid var(--color-dark);
+   padding: 2rem;
+   width: 500px;
+   background-color: var(--color-light);
+   overflow: hidden;
+   position: relative;
+
+}
+
+.todo-app-header {
+   background-color: var(--color-info);
+   top: 0;
+   left: 0;
+   position: absolute;
+   width: 100%;
+   padding: 2rem;
+   opacity: .9;
+}
+.todo-app-heading {
+   margin-top: 0;
+}
+.btn {
+   border-radius: 1rem;
+   padding: 1rem;
+   border: none;
+}
+.btn.color-accent {
+   background-color: var(--color-accent);
+   color: #fff;
+}
+@media screen and (max-width: 768px) {
+   .todoApp {
+      max-width: 50rem;
+      min-width: 20rem;
+   }
+}
+.content {
+   display: grid;
+   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+   gap: 1rem;
+   max-height: 400px;
+   overflow: auto;
+   padding-right: 1rem;
+   z-index: -1;
+   margin-top: 7rem;
+}
+.content::-webkit-scrollbar {
+   width: 6px;
+}
+.content::-webkit-scrollbar-track {
+   border-radius: 5px;
+}
+.content::-webkit-scrollbar-thumb {
+   border-radius: 2px;
+   background-color: #bc8080;
+}
+.task {
+   background-color: var(--primary-color);
+   border-radius: 5px;
+   width: 100%;
+   padding: 0 2rem;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   color: #fff;
+   transition: all .3s;
+   box-shadow: 0 5px #3786a0;
+}
+.task:hover {
+   background-color: var(--color-info);
+   transform: translateY(2px) translateX(-3px);
+}
+.task:nth-child(odd):hover {
+   background-color: var(--color-info);
+   transform: translateY(-2px) translateX(3px);
+
+}
+.add-icon-container {
+    background-color: var(--color-accent);
+    width: 4rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    justify-self: center;
+    bottom: 3rem;
+    right: 4rem;
+    position: absolute;
+}
+.icon{
+   fill: #fff;
+   height: 3rem;
+   cursor: pointer;
+}
+.icon:hover {
+   fill: #332D2D;
+}
