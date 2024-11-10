@@ -46,6 +46,9 @@ body {
    width: 100%;
    padding: 2rem;
    opacity: .9;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
 }
 .todo-app-heading {
    margin-top: 0;
@@ -73,7 +76,7 @@ body {
    overflow: auto;
    padding-right: 1rem;
    z-index: -1;
-   margin-top: 7rem;
+   margin-top: 9rem;
 }
 .content::-webkit-scrollbar {
    width: 6px;
