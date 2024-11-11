@@ -4,7 +4,6 @@ html {
 * {
    box-sizing: border-box;
    padding: 0;
-   color: #fff;
    list-style: none;
 }
 :root {
@@ -77,6 +76,7 @@ body {
    border-radius: 1rem;
    padding: 1rem;
    border: none;
+   cursor: pointer;
 }
 .btn.color-accent {
    background-color: var(--color-accent);
@@ -128,6 +128,17 @@ body {
    background-color: var(--color-info);
    transform: translateY(-2px) translateX(3px);
 
+}
+.tasks {
+   max-height: 0;
+   opacity: 0;
+}
+.show-tasks .content{
+   max-height: 0;
+}
+.show-tasks .tasks {
+   max-height: 100%;
+   opacity: 1;
 }
 .add-icon-container {
     background-color: var(--color-accent);
