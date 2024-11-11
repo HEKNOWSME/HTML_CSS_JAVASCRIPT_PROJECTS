@@ -151,7 +151,7 @@ body {
    max-height: 100%;
    opacity: 1;
 }
-.add-icon-container {
+.show-tasks .add-icon-container {
     background-color: var(--color-accent);
     width: 4rem;
     height: 3rem;
@@ -172,7 +172,7 @@ body {
    fill: #332D2D;
 }
 .tasks-container {
-   height: 35rem;
+   height: 20rem;
    overflow-y: auto;
 }
 
@@ -198,4 +198,42 @@ body {
 }
 .show-tasks .add-icon-container {
    right: inherit;
+}
+
+.form {
+   display: flex;
+   flex-direction: column;
+   gap: 1rem;
+}
+
+.form .btn {
+   border: 1px solid;
+}
+.input {
+   padding: 1rem;
+   border-radius: 10px;
+   border: 1px solid;
+   outline: 0;
+}
+
+.todo-app .add-task {
+   max-height: 0;
+   opacity: 0;
+}
+
+.show-tasks .add-task {
+   max-height: 100%;
+   opacity: 1;
+}
+.add-task .add-task-inputs{
+   max-height: 0;
+   opacity: 0;
+}
+.show-task-input .add-icon-container {
+   max-height: 0;
+   opacity: 0;
+}
+.show-task-input .add-task-inputs {
+   max-height: 100%;
+   opacity: 1;
 }

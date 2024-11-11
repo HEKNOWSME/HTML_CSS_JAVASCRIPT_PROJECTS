@@ -8,7 +8,7 @@
 </head>
 <body>
    <div class="container">
-      <div class="todo-app show-tasks">
+      <div class="todo-app">
          <div class="todo-app-header">
             <button type="button" class="btn back">back</button>
             <h2 class="todo-app-heading">To Do App</h2>
@@ -22,41 +22,36 @@
          <div class="content">
             <button  type="button" class="task btn">
                <h3>Personal</h3>
-               <p>5 tasks</p>
+               <p class="task-number">5 tasks</p>
             </button>
             <button  type="button" class="task btn">
                <h3>Work</h3>
-               <p>5 tasks</p>
+               <p class="task-number">5 tasks</p>
             </button>
             <button  type="button" class="task btn">
                <h3>Shopping</h3>
-               <p>5 tasks</p>
+               <p class="task-number">5 tasks</p>
             </button>
             <button  type="button" class="task btn">
                <h3>Coding</h3>
-               <p>5 tasks</p>
+               <p class="task-number">5 tasks</p>
             </button>
             <button  type="button" class="task btn">
                <h3>Health</h3>
-               <p>5 tasks</p>
+               <p class="task-number">5 tasks</p>
             </button>
             <button  type="button" class="task btn">
                <h3>Fitness</h3>
-               <p>5 tasks</p>
+               <p class="task-number">5 tasks</p>
             </button>
             <button  type="button" class="task btn">
                <h3>Education</h3>
-               <p>5 tasks</p>
+               <p class="task-number">5 tasks</p>
             </button>
             <button  type="button" class="task btn">
                <h3>Finance</h3>
-               <p>5 tasks</p>
+               <p class="task-number">5 tasks</p>
             </button>
-            <div class="add-icon-container">
-               <svg class="icon">
-                  <use href="./styles/sprite.svg#plus"></use>
-               </svg>
-            </div>
          </div>
          <div class="tasks">
             <div class="tasks-header">
@@ -69,6 +64,30 @@
                   <span class="span-delete"></span>
                </article>
             </section>
+         </div>
+         <div class="add-task">
+            <div class="add-task-inputs">
+               <form class="form" action="">
+                  <input type="text" name="task" id="task" class="input" placeholder="add Task">
+                  <select class="btn" title="category"  name="category">
+                     <option value="personal">Personal</option>
+                     <option>Work</option>
+                     <option>Shopping</option>
+                     <option selected>Coding</option>
+                     <option>Health</option>
+                     <option>Fitness</option>
+                     <option>Education</option>
+                     <option>Finance</option>
+                </select>
+                <button class="btn" type="submit">Add</button>
+                <button class="btn" type="reset">Cancel</button>
+               </form>
+            </div>
+            <div class="add-icon-container">
+               <svg class="icon">
+                  <use href="./styles/sprite.svg#plus"></use>
+               </svg>
+            </div>
          </div>
       </div>
    </div>
