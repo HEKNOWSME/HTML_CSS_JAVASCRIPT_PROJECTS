@@ -21,6 +21,9 @@ body {
    background: var(--color-dark);
    font-size: 1.6rem;
 }
+.flex {
+   display: flex;
+}
 .container {
    padding-top: 2rem;
    display: flex;
@@ -167,4 +170,32 @@ body {
 }
 .icon:hover {
    fill: #332D2D;
+}
+.tasks-container {
+   height: 35rem;
+   overflow-y: auto;
+}
+
+.tasks-header {
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+}
+.tasks-header .btn {
+   background-color: var(--color-dark);
+   color: #fff;
+}
+.task-content {
+   display: flex;
+   justify-content: space-between;
+   padding-right: 1rem;
+}
+.span-delete {
+   content:url(./trash.svg);
+   display: inline-block;
+   height: 20px;
+   cursor: pointer;
+}
+.show-tasks .add-icon-container {
+   right: inherit;
 }
