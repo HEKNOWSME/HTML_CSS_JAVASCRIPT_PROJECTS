@@ -96,7 +96,7 @@ body {
    overflow: auto;
    padding-right: 1rem;
    z-index: -1;
-   margin-top: 12rem;
+   margin-top: 14rem;
 }
 .content::-webkit-scrollbar {
    width: 6px;
@@ -133,10 +133,18 @@ body {
    max-height: 0;
    opacity: 0;
 }
+.back {
+   max-height: 0;
+   opacity: 0;
+}
 .show-tasks .content{
    max-height: 0;
 }
 .show-tasks .tasks {
+   max-height: 100%;
+   opacity: 1;
+}
+.show-tasks .back {
    max-height: 100%;
    opacity: 1;
 }
