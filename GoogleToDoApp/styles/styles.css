@@ -132,10 +132,6 @@ body {
    transform: translateY(-2px) translateX(3px);
 
 }
-.tasks {
-   max-height: 0;
-   opacity: 0;
-}
 .back {
    max-height: 0;
    opacity: 0;
@@ -174,74 +170,4 @@ body {
 .tasks-container {
    height: 20rem;
    overflow-y: auto;
-}
-
-.tasks-header {
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-}
-.tasks-header .btn {
-   background-color: var(--color-info);
-   color: #fff;
-   text-transform: uppercase;
-}
-.task-content {
-   display: flex;
-   justify-content: space-between;
-   padding-right: 1rem;
-}
-.span-delete {
-   content:url(./trash.svg);
-   display: inline-block;
-   height: 20px;
-   cursor: pointer;
-}
-.show-tasks .add-icon-container {
-   right: inherit;
-}
-
-.form {
-   display: flex;
-   flex-direction: column;
-   gap: 1rem;
-}
-
-.form .btn {
-   border: 1px solid;
-}
-.input {
-   padding: 1rem;
-   border-radius: 10px;
-   border: 1px solid;
-   outline: 0;
-}
-
-.todo-app .add-task {
-   max-height: 0;
-   opacity: 0;
-}
-.task-heading {
-   border-radius: 5px;
-   background-color: var(--color-accent);
-   padding: .3rem 1rem;
-   color: #fff;
-}
-.check {
-   display: flex;
-   align-items: center;
-   gap: 1rem;
-   font-size: 1.8rem;
-}
-#checkbox {
-   width: 20px;
-   height: 15px;
-}
-.completed {
-   text-decoration: line-through;
-   opacity: .5;
-}
-.form-inputs {
-   max-height: 0;
-   opacity: 0;
 }
