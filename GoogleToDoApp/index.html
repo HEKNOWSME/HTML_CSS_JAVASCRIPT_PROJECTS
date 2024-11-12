@@ -8,7 +8,7 @@
 </head>
 <body>
    <div class="container">
-      <div class="todo-app">
+      <div class="todo-app show-tasks">
          <div class="todo-app-header">
             <button type="button" class="btn back">back</button>
             <h2 class="todo-app-heading">To Do App</h2>
@@ -55,12 +55,15 @@
          </div>
          <div class="tasks">
             <div class="tasks-header">
-               <h2 class="btn">Personal Tasks</h2>
+               <h2 class="task-heading">Personal Tasks</h2>
                <span class="btn">5 Task</span>
             </div>
             <section class="tasks-container">
                <article class="task-content">
-                  <div class="task-text"> 1. Hello</div>
+                  <div class="check">
+                     <input type="checkbox" name="task" id="checkbox">
+                     <label for="checkbox">Task</label>
+                  </div>
                   <span class="span-delete"></span>
                </article>
             </section>
