@@ -138,6 +138,12 @@ body {
 }
 .show-tasks .content{
    max-height: 0;
+   opacity: 0;
+   display: block;
+}
+.show-tasks .screen {
+   max-height: 0;
+   opacity: 0;
 }
 .show-tasks .tasks {
    max-height: 100%;
@@ -147,18 +153,15 @@ body {
    max-height: 100%;
    opacity: 1;
 }
-.add-icon-container {
-    background-color: var(--color-accent);
-    width: 4rem;
-    height: 3rem;
-    display: flex;
-    align-items: center;
-    border-radius: 5px;
-    justify-self: center;
-    bottom: 3rem;
-    right: 4rem;
-    position: absolute;
+.show-category {
+   max-height: 0;
+   opacity: 0;
 }
+.show-tasks .show-category {
+   max-height: 100%;
+   opacity: 1;
+}
+
 .icon{
    fill: #fff;
    height: 3rem;
@@ -170,4 +173,85 @@ body {
 .tasks-container {
    height: 20rem;
    overflow-y: auto;
+}
+.show-category {
+   position: relative;
+}
+.category-content {
+   height: 20rem;
+   max-height: 200px;
+   overflow-y: auto;
+}
+.category-content::-webkit-scrollbar {
+   width: 7px;
+}
+.category-content::-webkit-scrollbar-thumb {
+   background-color: var(--color-dark);
+   border-radius: 5px;
+}
+.category {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+.category-heading, .tasks_number {
+   border-radius: 5px;
+   background-color: var(--color-info);
+   color: #fff;
+   padding: .4rem 1rem;
+}
+.input-group {
+   display: flex;
+   align-items: center;
+   gap: 1rem;
+}
+.category-task {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+#checkbox {
+   width: 20px;
+   height: 15px;
+   cursor: pointer;
+}
+.span {
+   content: url('./trash.svg');
+   width: 20px;
+   cursor: pointer;
+}
+.add-task-icon {
+   background-color: var(--color-info);
+   display: flex;
+   height: 32px;
+   width: 32px;
+   border-radius: 5px;
+   position: absolute;
+   right: 5rem;
+   bottom: 2rem;
+}
+.add-task-icon .icon {
+   fill: #fff;
+}
+.add-task-form {
+   display: flex;
+   flex-direction: column;
+   padding: 2rem;
+   gap: 2rem;
+   background-color: #14A44D;
+   border-radius: 5px;
+
+}
+.add-task-form .btn {
+   background: var(--color-dark);
+}
+#input {
+   padding: 1rem;
+   border-radius: 5px;
+   outline: none;
+   border: 0;
+   background-color: var(--color-info);
+}
+#input::placeholder , .add-task-form .btn {
+   color: #fff;
 }

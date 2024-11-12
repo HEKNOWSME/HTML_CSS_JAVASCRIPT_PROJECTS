@@ -8,7 +8,7 @@
 </head>
 <body>
    <div class="container">
-      <div class="todo-app">
+      <div class="todo-app show-tasks">
          <div class="todo-app-header">
             <button type="button" class="btn back">back</button>
             <h2 class="todo-app-heading">To Do App</h2>
@@ -52,6 +52,36 @@
                <h3>Finance</h3>
                <p class="task-number">5 tasks</p>
             </button>
+         </div>
+         <div class="show-category">
+            <div class="category">
+               <h2 class="category-heading">Personal</h2>
+               <span class="tasks_number">5 task</span>
+            </div>
+            <section class="category-content">
+               <article class="category-task">
+                  <div class="input-group">
+                     <input type="checkbox" name="checkbox" id="checkbox">
+                     <label for="checkbox">One</label>
+                  </div>
+                  <span class="span"></span>
+               </article>
+            </section>
+            <div class="add-task-icon">
+               <svg class="icon">
+                     <use href="./styles/sprite.svg#plus"></use>
+               </svg>
+            </div>
+            <div class="add-task-form">
+               <input type="text" id="input" placeholder="Add Task">
+               <button class="btn" type="submit">Add one</button>
+            </div>
+      </div>
+      <div class="add-category">
+         <div class="add-task-icon screen">
+            <svg class="icon">
+               <use href="./styles/sprite.svg#plus"></use>
+            </svg>
          </div>
       </div>
    </div>
