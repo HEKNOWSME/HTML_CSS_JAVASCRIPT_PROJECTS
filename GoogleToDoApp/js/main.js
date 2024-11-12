@@ -20,6 +20,10 @@ function toggle(e){
       todoApp.classList.toggle('show-tasks')
    } else if (target.matches('.add')) {
       showCategory.classList.add('show-input')
+   } else if (target.matches('.screen')) {
+      todoApp.classList.add('add_screen_Task');
+   }else if (target.matches('.to-scrn')) {
+      todoApp.classList.remove('add_screen_Task');
    }
 }
 

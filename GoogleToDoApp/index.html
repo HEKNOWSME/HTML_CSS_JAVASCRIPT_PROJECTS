@@ -8,7 +8,7 @@
 </head>
 <body>
    <div class="container">
-      <div class="todo-app show-tasks">
+      <div class="todo-app">
          <div class="todo-app-header">
             <button type="button" class="btn back">back</button>
             <h2 class="todo-app-heading">To Do App</h2>
@@ -67,7 +67,7 @@
                   <span class="span"></span>
                </article>
             </section>
-            <div class="add-task-icon ">
+            <div class="add-task-icon">
                <svg class="icon add">
                      <use href="./styles/sprite.svg#plus"></use>
                </svg>
@@ -76,13 +76,30 @@
                <input type="text" id="input" placeholder="Add Task">
                <button class="btn" id="add-one" type="submit">Add one</button>
             </div>
-      </div>
-      <div class="add-category">
-         <div class="add-task-icon screen">
-            <svg class="icon">
-               <use href="./styles/sprite.svg#plus"></use>
-            </svg>
          </div>
+         <div class="add-category">
+            <form class="form">
+               <input type="text" class="btn" name="task-input"    id="task-input" placeholder="Please add task">
+               <select class="btn" id="categories" title="categories">
+                  <option value="Personal">Personal</option>
+                  <option value="Work">Wprk</option>
+                  <option value="Shopping">Shopping</option>
+                  <option value="Coding">Coding</option>
+                  <option value="Health">Health</option>
+                  <option value="Fitness">Fitness</option>
+                  <option value="Education">Education</option>
+                  <option value="Finance">Finance</option>
+               </select>
+               <button class="btn" type="button">Add one</button>
+               <button class="btn" type="reset">Cancel</button>
+            </form>
+            <div class=" add-task-icon ">
+               <svg class="icon screen">
+                  <use href="./styles/sprite.svg#plus"></use>
+               </svg>
+            </div>
+         </div>
+         <button  type="button" class="btn to-scrn">Back</button>
       </div>
    </div>
    <script src="./js/main.js"></script>
