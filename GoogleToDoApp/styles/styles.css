@@ -223,15 +223,16 @@ body {
 .add-task-icon {
    background-color: var(--color-info);
    display: flex;
-   height: 32px;
-   width: 32px;
    border-radius: 5px;
    position: absolute;
    right: 5rem;
    bottom: 2rem;
+   cursor: pointer;
 }
 .add-task-icon .icon {
    fill: #fff;
+   height: 32px;
+   width: 32px;
 }
 .add-task-form {
    display: flex;
@@ -240,18 +241,26 @@ body {
    gap: 2rem;
    background-color: #14A44D;
    border-radius: 5px;
+   max-height: 0;
+   opacity: 0;
 
+}
+.show-input .add-task-form {
+   max-height: 100%;
+   opacity: 1;
+}
+.show-input .add-task-icon {
+   max-height: 0;
+   opacity: 0;
 }
 .add-task-form .btn {
    background: var(--color-dark);
+   color: #fff;
 }
 #input {
    padding: 1rem;
    border-radius: 5px;
    outline: none;
    border: 0;
-   background-color: var(--color-info);
-}
-#input::placeholder , .add-task-form .btn {
-   color: #fff;
+   background-color: #fff;
 }
