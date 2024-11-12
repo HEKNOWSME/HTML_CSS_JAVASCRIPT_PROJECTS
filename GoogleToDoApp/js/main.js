@@ -1,17 +1,20 @@
 const task = document.querySelector('.task');
-const todo_app  = document.querySelector('.todo-app')
-const add_icon = document.querySelector('.add-icon-container');
-const add_task = document.querySelector('.add-task')
-todo_app.addEventListener('click', toggle)
-add_icon.addEventListener('click', () => {
-   add_task.classList.toggle('show-task-input')
+const todoApp  = document.querySelector('.todo-app')
+const addIcon = document.querySelector('.add-icon-container');
+const addTask = document.querySelector('.add-task');
+const form_input = document.getElementById('task');
+const select = document.querySelector('.select');
+const submit = document.getElementById('submit')
+todoApp.addEventListener('click', toggle);
+addIcon.addEventListener('click', () => {
+   addTask.classList.toggle('show-task-input')
 })
 function toggle(e){
    const { target } = e;
    if (target.matches('.task')) {
-      todo_app.classList.toggle('show-tasks')
+      todoApp.classList.toggle('show-tasks')
    }
    else if (target.matches('.back')) {
-      todo_app.classList.toggle('show-tasks')
+      todoApp.classList.toggle('show-tasks')
    }
 }

@@ -8,7 +8,7 @@
 </head>
 <body>
    <div class="container">
-      <div class="todo-app show-tasks">
+      <div class="todo-app">
          <div class="todo-app-header">
             <button type="button" class="btn back">back</button>
             <h2 class="todo-app-heading">To Do App</h2>
@@ -60,19 +60,28 @@
             </div>
             <section class="tasks-container">
                <article class="task-content">
-                  <div class="check">
+                  <div class="check completed">
                      <input type="checkbox" name="task" id="checkbox">
                      <label for="checkbox">Task</label>
                   </div>
                   <span class="span-delete"></span>
                </article>
             </section>
+            <div class="add-task_category">
+               <input type="text" name="task" id="task-input" class="input" placeholder="add Task">
+               <button class="btn" type="button" id="submit">Add</button>
+               <button class="btn" type="reset">Cancel</button>
+            </div>
+            <div class="add-icon-container">
+               <svg class="icon">
+                  <use href="./styles/sprite.svg#plus"></use>
+               </svg>
+            </div>
          </div>
-         <div class="add-task">
-            <div class="add-task-inputs">
+         <div class="form-inputs">
                <form class="form" action="">
                   <input type="text" name="task" id="task" class="input" placeholder="add Task">
-                  <select class="btn" title="category"  name="category">
+                  <select class="btn select" title="category"  name="category">
                      <option value="personal">Personal</option>
                      <option>Work</option>
                      <option>Shopping</option>
@@ -82,7 +91,7 @@
                      <option>Education</option>
                      <option>Finance</option>
                 </select>
-                <button class="btn" type="submit">Add</button>
+                <button class="btn" type="button" class="submit">Add</button>
                 <button class="btn" type="reset">Cancel</button>
                </form>
             </div>
@@ -91,7 +100,6 @@
                   <use href="./styles/sprite.svg#plus"></use>
                </svg>
             </div>
-         </div>
       </div>
    </div>
    <script src="./js/main.js"></script>
