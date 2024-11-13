@@ -48,7 +48,6 @@ function checkForm() {
    input.value = ''
 }
 
-let numberPersonal = 0, numberWork = 0;
 let tasks = []
 class Task {
    constructor(task, categoryContent, completed) {
@@ -84,17 +83,12 @@ catBtn.addEventListener('click', () => {
          tasks.push(task)
 
          // check availability of category
+         localStorage.setItem('categories', JSON.stringify(categoriesObject))
          categoriesObject.forEach(category => {
             if (category.name.toLocaleLowerCase() === categories.value.toLocaleLowerCase()) {
-               category.number += 1;
+               category.number++
+               task_number.innerHTML = `${category.number} Tasks`
                localStorage.setItem('categories', JSON.stringify(categoriesObject))
-               
-               const data = localStorage.getItem('categories');
-               const categoriesInStorage = JSON.parse(data)
-               const matchedCategory = categoriesInStorage.find(categoryInStorage => category.name.toLocaleLowerCase() === categoryInStorage.name.toLocaleLowerCase()
-               );
-
-               task_number.innerHTML = `${matchedCategory.number} Tasks`
                
             }
          })
@@ -118,8 +112,12 @@ function displayCategory() {
       const matchedCategory = categoriesInStorage.find(categoryInStorage => h3.innerHTML.toLocaleLowerCase() === categoryInStorage.name.toLocaleLowerCase()
       );
       task_number.innerHTML = `${matchedCategory.number} Tasks`
+      console.log();
 
    })
 }
 displayCategory()
 getTask()
+const data = localStorage.getItem('categories');
+const categoriesInStorage = JSON.parse(data);
+console.log(categoriesInStorage);
