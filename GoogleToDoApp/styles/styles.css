@@ -309,3 +309,6 @@ body {
 .screen {
    cursor: pointer;
 }
+#task-input {
+   outline: none;
+}
