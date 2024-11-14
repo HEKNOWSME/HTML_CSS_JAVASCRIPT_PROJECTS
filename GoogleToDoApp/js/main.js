@@ -66,36 +66,25 @@ let categoriesObject = [
    {name: "Education", number: 0},
    {name: "Finance", number: 0},
 ]
+localStorage.setItem('categories', JSON.stringify(categoriesObject));
+const data = localStorage.getItem('categories');
 const taskInput = document.getElementById('task-input');
 const categories = document.getElementById('categories');
 const catBtn = document.getElementById('catBtn');
 
 catBtn.addEventListener('click', () => {
+   const categoriesInStorage = JSON.parse(data);
    if (!taskInput.value) {
       alert('Enter something');
       return
    }
-   Array.from(taskCategory).forEach((btn) => {
-      const h3 = btn.querySelector('h3');
-      if (categories.value.toLocaleLowerCase() === h3.innerHTML.toLocaleLowerCase()) {
-         const task_number = btn.querySelector('.task-number');
-         const task = new Task(taskInput.value, categories.value, false);
-         tasks.push(task)
-
-         // check availability of category
-         localStorage.setItem('categories', JSON.stringify(categoriesObject))
-         categoriesObject.forEach(category => {
-            if (category.name.toLocaleLowerCase() === categories.value.toLocaleLowerCase()) {
-               category.number++
-               task_number.innerHTML = `${category.number} Tasks`
-               localStorage.setItem('categories', JSON.stringify(categoriesObject))
-               
-            }
-         })
-         localStorage.setItem('tasks', JSON.stringify(tasks));
-         console.log(tasks);
-      }
-   
+   Array.from(categoriesInStorage).forEach((btn) => {
+      categoriesObject.forEach(item => {
+         if (item.name === btn.name && categories.value === btn.name) {
+            item.number++
+            console.log(item.number);
+         }
+      })
    })
 })
 const getTask = () => {
@@ -118,6 +107,4 @@ function displayCategory() {
 }
 displayCategory()
 getTask()
-const data = localStorage.getItem('categories');
-const categoriesInStorage = JSON.parse(data);
-console.log(categoriesInStorage);
+
