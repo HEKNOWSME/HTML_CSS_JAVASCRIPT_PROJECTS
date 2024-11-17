@@ -6,7 +6,6 @@ const categoryContent = document.querySelector('.category-content');
 const addOneBtn = document.getElementById('add-one');
 const input = document.getElementById('input');
 todoApp.addEventListener('click', toggle);
-addOneBtn.addEventListener('click', checkForm);
 input.addEventListener('keypress', (e) => {
    if (e.key === "Enter") {
       checkForm()
@@ -26,29 +25,19 @@ function toggle(e){
    }else if (target.matches('.to-scrn')) {
       todoApp.classList.remove('add_screen_Task');
    }
-}
-
-function checkForm() {
-   const addTaskForm = addOneBtn.parentElement
-   const input = addTaskForm.querySelector('#input');
-   if (!input.value.trim()) {
-      window.alert('please enter anything')
-      return
-   }
-   const task = input.value;
-   const article = document.createElement('article');
-   article.className = "category-task"
-   article.innerHTML = `
-   <div class="input-group">
-      <input type="checkbox" name="checkbox" id="checkbox">
-      <label class="checkbox" for="checkbox">${task}</label>
-   </div>
-   <span class="span"></span>`
-   categoryContent.appendChild(article)
-   input.value = ''
-}
-
-let tasks = []
+};
+const tasks = [
+   {taskCategory: "Personal", taskText: "one"},
+   {taskCategory: "Personal", taskText: "one Two"},
+   {taskCategory: "Work", taskText: "Two"},
+   {taskCategory: "Shopping", taskText: "Three"},
+   {taskCategory: "Shopping", taskText: "Three Two"},
+   {taskCategory: "Coding", taskText: "Four"},
+   {taskCategory: "Health", taskText: "Five"},
+   {taskCategory: "Fitness", taskText: "Six"},
+   {taskCategory: "Education", taskText: "Seven"},
+   {taskCategory: "Finance", taskText: "Eight"},
+]
 class Task {
    constructor(task, categoryContent, completed) {
       this.task = task;
@@ -66,45 +55,42 @@ let categoriesObject = [
    {name: "Education", number: 0},
    {name: "Finance", number: 0},
 ]
-localStorage.setItem('categories', JSON.stringify(categoriesObject));
-const data = localStorage.getItem('categories');
-const taskInput = document.getElementById('task-input');
-const categories = document.getElementById('categories');
-const catBtn = document.getElementById('catBtn');
 
-catBtn.addEventListener('click', () => {
-   const categoriesInStorage = JSON.parse(data);
-   if (!taskInput.value) {
-      alert('Enter something');
-      return
-   }
-   Array.from(categoriesInStorage).forEach((btn) => {
-      categoriesObject.forEach(item => {
-         if (item.name === btn.name && categories.value === btn.name) {
-            item.number++
-            console.log(item.number);
+const btnTasks = document.querySelectorAll('.task');
+const displayCategory = () => {
+   categoriesObject.forEach(cat => {
+      Array.from(btnTasks).forEach(task => {
+         const h3 = task.querySelector('h3');
+         if (cat.name.toLowerCase() === h3.innerHTML.toLowerCase()) {
+            const tasksCategory = tasks.filter((task) => cat.name.toLowerCase() === task.taskCategory.toLowerCase());
+            const taskNumber = task.querySelector('.task-number');
+            taskNumber.innerHTML = `${tasksCategory.length} Tasks`;
          }
       })
-   })
-})
-const getTask = () => {
-   const data = localStorage.getItem('tasks');
-   JSON.parse(data)
-   console.log(data);
-}
-function displayCategory() {
-   const data = localStorage.getItem('categories');
-   const categoriesInStorage = JSON.parse(data);
-   Array.from(taskCategory).forEach(task => {
-      const task_number = task.querySelector('.task-number');
-      const h3 = task.querySelector('h3');
-      const matchedCategory = categoriesInStorage.find(categoryInStorage => h3.innerHTML.toLocaleLowerCase() === categoryInStorage.name.toLocaleLowerCase()
-      );
-      task_number.innerHTML = `${matchedCategory.number} Tasks`
-      console.log();
 
+
+   })
+}
+const displayTasks = () => {
+   categoryContent.innerHTML = ''
+   Array.from(taskCategory).forEach(task => {
+      task.addEventListener('click', (e) => {
+         const h3 = task.querySelector('h3');
+         const allTasks = tasks.filter(item => item.taskCategory.toLowerCase() === h3.innerHTML.toLowerCase());
+         allTasks.forEach(item => {
+            const article = document.createElement('article');
+            article.classList.add('category-task');
+            article.innerHTML = `
+            <div class="input-group">
+               <input type="checkbox" name="checkbox" id="checkbox">
+               <label class="checkbox" for="checkbox">${item.taskText}</label>
+            </div>
+            <span class="span"></span>`;
+            categoryContent.appendChild(article)
+         })
+         
+      })
    })
 }
 displayCategory()
-getTask()
-
+displayTasks()
