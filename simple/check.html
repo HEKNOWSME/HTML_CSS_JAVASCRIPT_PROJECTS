@@ -72,7 +72,7 @@
       
       number.addEventListener('keypress', (e) => {
          if (e.key === "Enter") {
-            if (!number.value || number.value.trim() == 1) {
+            if (!number.value || number.value.trim() == 1 | number.value.trim() < 0) {
                alert.innerHTML = "<span style='color: red'>Shaka Uko Wakandika umubare hejuru ya 1";
                alert.classList.add('show');
                setTimeout(() => {
