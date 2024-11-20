@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Prime Number</title>
+   <style>
+      body {
+         height: 97vh;
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+         background: linear-gradient(135deg, #fafafa, #afa, #fff);
+      }
+      .input-group {
+         display: flex;
+         flex-direction: column;
+         width: 200px;
+         gap: 1rem;
+         background-color: bisque;
+         padding: 2rem;
+         border-radius: 10px;
+         box-shadow: 0 5px rgb(202, 191, 176);
+      }
+      .btn {
+         transition: all 0.4s;
+      }
+      #number, .btn {
+         outline: none;
+         border-radius: 10px;
+         border: 0;
+         padding: 0.5rem 1rem;
+      }
+      .btn:hover {
+         cursor: pointer;
+         background-color: rgb(147, 148, 148);
+         color: aliceblue;
+         transform: translate(1px) rotate(2deg);
+      }
+      .alert {
+         width: 250px;
+         margin-bottom: 1rem;
+         background-color: rgb(169, 169, 203);
+         display: block;
+         text-align: center;
+         padding: .5rem;
+         border-radius: 1rem;
+         transition: all;
+         transform: translateY(-100px);
+         max-height: 0;
+         opacity: 0;
+      }
+      .alert.show {
+         max-height: 100%;
+         opacity: 1;
+         transform: translateY(-100px) translateY(100px);
+      }
+   </style>
+</head>
+<body>
+   <span class="alert"></span>
+   <div class="input-group">
+      <label for="number">Enter Number To Check</label>
+      <input type="number" name="number" id="number">
+      <button type="button" class="btn">Check</button>
+   </div>
+   <script>
+      const btn = document.querySelector('.btn');
+      const alert = document.querySelector('.alert');
+      const number = document.getElementById('number');
+      
+      number.addEventListener('keypress', (e) => {
+         if (e.key === "Enter") {
+            if (!number.value || number.value.trim() == 1) {
+               alert.innerHTML = "<span style='color: red'>Shaka Uko Wakandika umubare hejuru ya 1";
+               alert.classList.add('show');
+               setTimeout(() => {
+               alert.classList.remove('show')
+            }, 1500);
+            }
+            else if(checkPrimeNumber(number.value)) {
+               alert.innerHTML = `The number ${number.value} is Prime number`;
+               alert.classList.add('show')
+               setTimeout(() => {
+                  alert.classList.remove('show')
+               }, 1500)
+         }else {
+            alert.innerHTML = `The number ${number.value} is not Prime number`;
+            alert.classList.add('show');
+            setTimeout(() => {
+               alert.classList.remove('show')
+            }, 1500)
+         }
+      }
+      });
+function checkPrimeNumber(number){
+   let true_or_false = [];
+         for (let fact = 2; fact < number; fact ++) {
+            if (number % fact === 0) {
+               true_or_false.push(0)
+               break
+            } else {
+               true_or_false.push(1);
+            }
+   }
+   check = true_or_false.every((item) => item === 1);
+   return check
+}
+   </script>
+</body>
+</html>
+
