@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Toggle | ClaudiStack</title>
+   <style>
+      .body {
+         background-color: #fff;
+      }
+      .black{
+         background-color: black;
+         color: #fff;
+      }
+      .btn {
+         padding: 1rem;
+         border-radius: 10px;
+         outline: none;
+         border: 0;
+      }
+      .black .btn:hover {
+         background-color: antiquewhite;
+         color: black;
+      }
+      .btn:hover {
+         background-color: black;
+         color: #fff;
+         cursor: pointer;
+      }
+      .container {
+        position: absolute;
+        top: 50%;
+        left: 45%;
+
+      }
+   </style>
+</head>
+<body class="body">
+   <button type="button" class="btn">Toggle</button>
+   <div class="container">
+      Nothing to Display Here
+   </div>
+   <script>
+      const btn = document.querySelector('.btn');
+      const body = document.querySelector('.body');
+      btn.addEventListener('click', () => {
+         body.classList.toggle('black');
+      })
+   </script>
+</body>
+</html>
