@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Lists Component</title>
+   <style>
+      * {
+         box-sizing: border-box;
+      }
+      h3, 
+      .list-group-item, 
+      .btn, 
+      .alert{
+         border-radius: 5px;
+         padding: .5rem;
+         border: 0;
+      }
+      h3 {
+         background-color: beige;
+         text-align: center;
+      }
+      .list-group {
+         margin: 0;
+         padding: 0 1rem 1rem;
+         overflow: hidden;
+         list-style: none;
+         background-color: #e4e0e0;
+         border-radius: 10px;
+      }
+      .list-group-item {
+         margin-top: 1rem;
+         background-color: #cac0c0;
+         color: #ffffff;
+      }
+      .btn {
+         margin-top: 1rem;
+         padding: .5rem 1rem;
+         background-color: #e4e0e0;
+         color: darkgreen;
+      }
+      .btn:hover, .list-group-item:hover {
+         cursor: pointer;
+         background-color: antiquewhite;
+         color: black;
+      }
+      .alert {
+         background-color: rgb(78, 123, 123);
+         color: #ffffff;
+         text-align: center;
+         opacity: 0;
+         max-height: 0;
+      }
+      .alert.show {
+         max-height: 100%;
+         opacity: 1;
+      }
+      .list-group-item.clicked {
+         background-color: black;
+         color: #cac0c0;
+      }
+   </style>
+</head>
+<body>
+   <div class="alert">I am an Alert</div>
+   <h3>This is The component built with vanilla javascript</h3>
+   <ul class="list-group">
+      <li class="list-group-item">one</li>
+      <li class="list-group-item">Two</li>
+      <li class="list-group-item">Three</li>
+   </ul>
+   <button type="button" class="btn">Check</button>
+   <script>
+      const lists = ['claude', 'claudistack', 'iranzi'];
+      const listGroup = document.querySelector('.list-group');
+      const btn = document.querySelector('.btn');
+      const alert = document.querySelector('.alert');
+
+      listGroup.innerHTML = ''
+      lists.map((item, index) => {
+         const list = document.createElement('li')
+         list.innerHTML = item
+         list.classList.add('list-group-item')
+         listGroup.appendChild(list);
+         list.addEventListener('click', () => {
+            list.classList.toggle('clicked')
+         })
+      });
+      btn.addEventListener('click', ()  => {
+         alert.innerHTML = "Wamaneye ko Wakanze check btn?"
+         alert.classList.add('show');
+         setTimeout(() => {
+            alert.classList.remove('show');
+         }, 2000);
+         const items = document.querySelectorAll('.list-group-item');
+         Array.from(items).forEach(item => item.matches('.clicked') && item.classList.remove('clicked'));
+      })
+     
+   </script>
+</body>
+</html>
