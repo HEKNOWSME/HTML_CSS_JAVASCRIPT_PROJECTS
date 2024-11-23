@@ -28,6 +28,7 @@ body {
    gap: .5rem;
    cursor: pointer;
    background-color: transparent;
+   border: 0;
 }
 .line{
    width: 100%;
