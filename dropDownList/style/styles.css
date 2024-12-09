@@ -76,13 +76,16 @@ body {
     padding: 1rem;
     width: 25rem;
     border-radius: 0 0 1rem 1rem;
-    position: fixed;
+    position: absolute;
     right: 0;
-    z-index: 1;
     max-height: 100%;
-    transition: all 0.5s;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform .4s;
 }
-
+.sub-container.expanded {
+    transform: scaleY(1);
+}
 .header {
     display: flex;
     align-items: center;
@@ -141,10 +144,4 @@ body {
 }
 .block-header {
     text-align: center;
-}
-
-.sub-container.collapse {
-    opacity: 0;
-    max-height: 0;
-    transition: none;
 }
